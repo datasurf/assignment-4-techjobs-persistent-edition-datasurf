@@ -5,13 +5,14 @@ import javax.persistence.*;
 @Entity
 public class Job extends AbstractEntity{
 
-    private String employer;
+    @ManyToOne
+    private Employer employer;
     private String skills;
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
+    public Job(Employer anEmployer, String someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
@@ -19,11 +20,11 @@ public class Job extends AbstractEntity{
 
     // Getters and setters.
 
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
     }
 
-    public void setEmployer(String employer) {
+    public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
